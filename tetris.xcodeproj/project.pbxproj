@@ -13,6 +13,7 @@
 		D8C404C222C170E4009FCBCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C404C122C170E4009FCBCC /* Assets.xcassets */; };
 		D8C404C522C170E4009FCBCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C404C322C170E4009FCBCC /* LaunchScreen.storyboard */; };
 		D8C404D022C170E4009FCBCC /* tetrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C404CF22C170E4009FCBCC /* tetrisTests.swift */; };
+		D8C404E122C3F9A2009FCBCC /* tetrisbackground.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D8C404E022C3F9A2009FCBCC /* tetrisbackground.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		D8C404CB22C170E4009FCBCC /* tetrisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tetrisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C404CF22C170E4009FCBCC /* tetrisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tetrisTests.swift; sourceTree = "<group>"; };
 		D8C404D122C170E4009FCBCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8C404E022C3F9A2009FCBCC /* tetrisbackground.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tetrisbackground.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		D8C404B922C170E3009FCBCC /* tetris */ = {
 			isa = PBXGroup;
 			children = (
+				D8C404DA22C3785D009FCBCC /* Images */,
 				D8C404BA22C170E3009FCBCC /* AppDelegate.swift */,
 				D8C404BC22C170E3009FCBCC /* ViewController.swift */,
 				D8C404BE22C170E3009FCBCC /* Main.storyboard */,
@@ -94,6 +97,14 @@
 				D8C404D122C170E4009FCBCC /* Info.plist */,
 			);
 			path = tetrisTests;
+			sourceTree = "<group>";
+		};
+		D8C404DA22C3785D009FCBCC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D8C404E022C3F9A2009FCBCC /* tetrisbackground.jpeg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8C404E122C3F9A2009FCBCC /* tetrisbackground.jpeg in Resources */,
 				D8C404C522C170E4009FCBCC /* LaunchScreen.storyboard in Resources */,
 				D8C404C222C170E4009FCBCC /* Assets.xcassets in Resources */,
 				D8C404C022C170E3009FCBCC /* Main.storyboard in Resources */,
