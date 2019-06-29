@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D820FD7E22C6B3AB009DB9CE /* Brick.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820FD7D22C6B3AB009DB9CE /* Brick.swift */; };
+		D820FD8122C7FFDF009DB9CE /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820FD8022C7FFDF009DB9CE /* Board.swift */; };
 		D8C404BB22C170E3009FCBCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C404BA22C170E3009FCBCC /* AppDelegate.swift */; };
 		D8C404BD22C170E3009FCBCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C404BC22C170E3009FCBCC /* ViewController.swift */; };
 		D8C404C022C170E3009FCBCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C404BE22C170E3009FCBCC /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		D820FD7D22C6B3AB009DB9CE /* Brick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brick.swift; sourceTree = "<group>"; };
+		D820FD8022C7FFDF009DB9CE /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		D8C404B722C170E3009FCBCC /* tetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C404BA22C170E3009FCBCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8C404BC22C170E3009FCBCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D820FD7F22C7FFBF009DB9CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D820FD8022C7FFDF009DB9CE /* Board.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D8C404AE22C170E3009FCBCC = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 		D8C404B922C170E3009FCBCC /* tetris */ = {
 			isa = PBXGroup;
 			children = (
+				D820FD7F22C7FFBF009DB9CE /* View */,
 				D820FD7C22C6B382009DB9CE /* Model */,
 				D8C404DA22C3785D009FCBCC /* Images */,
 				D8C404BA22C170E3009FCBCC /* AppDelegate.swift */,
@@ -222,6 +233,7 @@
 			files = (
 				D8C404BD22C170E3009FCBCC /* ViewController.swift in Sources */,
 				D8C404BB22C170E3009FCBCC /* AppDelegate.swift in Sources */,
+				D820FD8122C7FFDF009DB9CE /* Board.swift in Sources */,
 				D820FD7E22C6B3AB009DB9CE /* Brick.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
