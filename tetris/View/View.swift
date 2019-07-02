@@ -79,4 +79,8 @@ class GameView: UIView {
     deinit {
         debugPrint("deinit GameView")
     }
+    
+    func prepare() {
+        self.gameBoard.clear()
+    }
 }
