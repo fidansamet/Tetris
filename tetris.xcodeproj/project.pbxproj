@@ -12,6 +12,7 @@
 		D820FD8322C95134009DB9CE /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820FD8222C95134009DB9CE /* View.swift */; };
 		D820FD8522CBDAC4009DB9CE /* TetrisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820FD8422CBDAC4009DB9CE /* TetrisViewController.swift */; };
 		D820FD8722CBDB0C009DB9CE /* Tetris.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820FD8622CBDB0C009DB9CE /* Tetris.swift */; };
+		D820FD8922CE9D06009DB9CE /* NextBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820FD8822CE9D06009DB9CE /* NextBrick.swift */; };
 		D8C404BB22C170E3009FCBCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C404BA22C170E3009FCBCC /* AppDelegate.swift */; };
 		D8C404BD22C170E3009FCBCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C404BC22C170E3009FCBCC /* ViewController.swift */; };
 		D8C404C022C170E3009FCBCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C404BE22C170E3009FCBCC /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		D820FD8222C95134009DB9CE /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		D820FD8422CBDAC4009DB9CE /* TetrisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisViewController.swift; sourceTree = "<group>"; };
 		D820FD8622CBDB0C009DB9CE /* Tetris.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tetris.swift; sourceTree = "<group>"; };
+		D820FD8822CE9D06009DB9CE /* NextBrick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextBrick.swift; sourceTree = "<group>"; };
 		D8C404B722C170E3009FCBCC /* tetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C404BA22C170E3009FCBCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8C404BC22C170E3009FCBCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				D820FD8022C7FFDF009DB9CE /* Board.swift */,
 				D820FD8222C95134009DB9CE /* View.swift */,
+				D820FD8822CE9D06009DB9CE /* NextBrick.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				D820FD8522CBDAC4009DB9CE /* TetrisViewController.swift in Sources */,
 				D820FD8722CBDB0C009DB9CE /* Tetris.swift in Sources */,
 				D8C404BD22C170E3009FCBCC /* ViewController.swift in Sources */,
+				D820FD8922CE9D06009DB9CE /* NextBrick.swift in Sources */,
 				D8C404BB22C170E3009FCBCC /* AppDelegate.swift in Sources */,
 				D820FD8122C7FFDF009DB9CE /* Board.swift in Sources */,
 				D820FD7E22C6B3AB009DB9CE /* Brick.swift in Sources */,
