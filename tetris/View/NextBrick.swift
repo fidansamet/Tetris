@@ -1,16 +1,7 @@
-//
-//  NextBrick.swift
-//  tetris
-//
-//  Created by Fidan on 4.07.2019.
-//  Copyright © 2019 Fidan. All rights reserved.
-//
-
-
 import UIKit
 
 class NextBrick: UIView {
-    
+ 
     override init(frame: CGRect) {
         super.init(frame: CGRect.zero)
         self.backgroundColor = UIColor(red:0.21, green:0.21, blue:0.21, alpha:1.0)
@@ -19,7 +10,6 @@ class NextBrick: UIView {
                                                selector: #selector(NextBrick.newBrickGenerated),
                                                name: NSNotification.Name(rawValue: Tetris.NewBrickDidGenerateNotification),
                                                object: nil)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -1,12 +1,3 @@
-//
-//  Brick.swift
-//  tetris
-//
-//  Created by Fidan on 28.06.2019.
-//  Copyright © 2019 Fidan. All rights reserved.
-//
-
-import Foundation
 import UIKit
 
 enum BrickType {
@@ -32,12 +23,12 @@ class Brick: NSObject {
     
     static var bricks = [
         BrickType.i(UIColor(red:0.40, green:0.64, blue:0.93, alpha:1.0)),
-        BrickType.j(UIColor(red:0.30, green:0.42, blue:0.80, alpha:1.0)),
-        BrickType.l(UIColor(red:0.80, green:0.47, blue:0.18, alpha:1.0)),
+        BrickType.j(UIColor(red:0.31, green:0.42, blue:0.80, alpha:1.0)),
+        BrickType.l(UIColor(red:0.81, green:0.47, blue:0.19, alpha:1.0)),
         BrickType.t(UIColor(red:0.67, green:0.45, blue:0.78, alpha:1.0)),
-        BrickType.z(UIColor(red:0.80, green:0.30, blue:0.38, alpha:1.0)),
-        BrickType.s(UIColor(red:0.62, green:0.75, blue:0.30, alpha:1.0)),
-        BrickType.o(UIColor(red:0.88, green:0.70, blue:0.25, alpha:1.0))
+        BrickType.z(UIColor(red:0.80, green:0.31, blue:0.38, alpha:1.0)),
+        BrickType.s(UIColor(red:0.61, green:0.75, blue:0.31, alpha:1.0)),
+        BrickType.o(UIColor(red:0.88, green:0.69, blue:0.25, alpha:1.0))
     ]
     
     static func newBrick() -> Brick {
@@ -121,6 +112,7 @@ class Brick: NSObject {
         case BrickType.o:
             return self.points
         default:
+            // 1. 회전의 중점 구하기
             var mx = self.points.reduce(CGFloat(0), { (initValue:CGFloat, p:CGPoint) -> CGFloat in
                 return initValue + p.x
             })
@@ -146,6 +138,8 @@ class Brick: NSObject {
         }
     }
     
+    
+    
     func left() -> CGPoint {
         var left = self.points[0]
         for p in self.points {
@@ -155,7 +149,6 @@ class Brick: NSObject {
         }
         return left
     }
-    
     func right() -> CGPoint {
         var right = self.points[0]
         for p in self.points {
@@ -165,7 +158,6 @@ class Brick: NSObject {
         }
         return right
     }
-    
     func bottom() -> CGPoint {
         var bottom = self.points[0]
         for p in self.points {
@@ -175,7 +167,6 @@ class Brick: NSObject {
         }
         return bottom
     }
-    
     func top() -> CGPoint {
         var top = self.points[0]
         for p in self.points {
@@ -186,6 +177,7 @@ class Brick: NSObject {
         return top
     }
     
+    // vertical length
     func vertical() -> Int {
         return Int(self.bottom().y) + 1
     }

@@ -1,11 +1,3 @@
-//
-//  TetrisViewController.swift
-//  tetris
-//
-//  Created by Fidan on 2.07.2019.
-//  Copyright © 2019 Fidan. All rights reserved.
-//
-
 import UIKit
 
 class TetrisViewController: UIViewController {

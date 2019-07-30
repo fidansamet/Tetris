@@ -1,12 +1,3 @@
-//
-//  Board.swift
-//  tetris
-//
-//  Created by Fidan on 29.06.2019.
-//  Copyright © 2019 Fidan. All rights reserved.
-//
-
-import Foundation
 import UIKit
 
 class GameBoard: UIView {
@@ -43,15 +34,53 @@ class GameBoard: UIView {
         return row
     }
     
-    override func draw(_ rect: CGRect) {
-        // draw game board
-        for r in  0..<GameBoard.rows {
-            for c in 0..<GameBoard.cols {
-                let color = self.board[r][c]
-                self.drawAtRow(r, col: c, color:color)
-            }
+    func generateBrick() {
+        self.currentBrick = Brick.generate()
+        
+        NotificationCenter.default.post(
+            name: Notification.Name(rawValue: Tetris.NewBrickDidGenerateNotification),
+            object: nil
+        )
+    }
+    
+    
+    func dropBrick() {
+        guard let currentBrick = self.currentBrick else { return }
+        
+        while self.canMoveDown(currentBrick) {
+            currentBrick.moveDown()
+            self.setNeedsDisplay()
         }
     }
+    
+    func rotateBrick() {
+        guard let currentBrick = self.currentBrick else { return }
+        
+        let rotatedPoints = currentBrick.rotatedPoints()
+        if self.canRotate(currentBrick, rotatedPoints: rotatedPoints) {
+            currentBrick.points = rotatedPoints
+            self.setNeedsDisplay()
+        }
+    }
+    
+    func canRotate(_ brick:Brick, rotatedPoints:[CGPoint]) -> Bool {
+        
+        for p in rotatedPoints {
+            let r = Int(p.y) + brick.ty
+            let c = Int(p.x) + brick.tx
+            if r < 0 || r >= GameBoard.rows {
+                return false
+            }
+            if c < 0 || c >= GameBoard.cols {
+                return false
+            }
+            if self.board[r][c] != GameBoard.EmptyColor {
+                return false
+            }
+        }
+        return true
+    }
+    
     
     func canMoveDown(_ brick:Brick) -> Bool {
         for p in brick.points {
@@ -71,15 +100,6 @@ class GameBoard: UIView {
             }
         }
         return true
-    }
-    
-    func dropBrick() {
-        guard let currentBrick = self.currentBrick else { return }
-        
-        while self.canMoveDown(currentBrick) {
-            currentBrick.moveDown()
-            self.setNeedsDisplay()
-        }
     }
     
     func update() -> (isGameOver:Bool, droppedBrick:Bool) {
@@ -116,6 +136,7 @@ class GameBoard: UIView {
         return (false, droppedBrick)
     }
     
+    
     func lineClear() {
         var lineCount = 0
         var linesToRemove = [Int]()
@@ -140,42 +161,6 @@ class GameBoard: UIView {
             object: nil,
             userInfo: ["lineCount":NSNumber(value: lineCount as Int)]
         )
-    }
-    
-    func generateBrick() {
-        self.currentBrick = Brick.generate()
-        
-        NotificationCenter.default.post(
-            name: Notification.Name(rawValue: Tetris.NewBrickDidGenerateNotification),
-            object: nil
-        )
-    }
-    
-    
-    func drawAtRow(_ r:Int, col c:Int, color:UIColor!) {
-        let context = UIGraphicsGetCurrentContext()
-        let block = CGRect(x: CGFloat((c+1)*GameBoard.gap + c*GameBoard.brickSize),
-                           y: CGFloat((r+1)*GameBoard.gap + r*GameBoard.brickSize),
-                           width: CGFloat(GameBoard.brickSize),
-                           height: CGFloat(GameBoard.brickSize))
-        
-        if color == GameBoard.EmptyColor {
-            GameBoard.strokeColor.set()
-            context?.fill(block)
-        } else {
-            color.set()
-            UIBezierPath(roundedRect: block, cornerRadius: 1).fill()
-        }
-    }
-    
-    func clear() {
-        self.currentBrick = nil
-        
-        self.board = [[UIColor]]()
-        for _ in 0..<GameBoard.rows {
-            self.board.append(self.generateRow())
-        }
-        self.setNeedsDisplay()
     }
     
     func updateX(_ x:Int) {
@@ -226,7 +211,54 @@ class GameBoard: UIView {
             }
         }
     }
-
+    
+    
+    override func draw(_ rect: CGRect) {
+        // draw game board
+        for r in  0..<GameBoard.rows {
+            for c in 0..<GameBoard.cols {
+                let color = self.board[r][c]
+                self.drawAtRow(r, col: c, color:color)
+            }
+        }
+        // draw current bricks
+        guard let currentBrick = self.currentBrick else { return }
+        for p in currentBrick.points {
+            let r = Int(p.y) + currentBrick.ty
+            let c = Int(p.x) + currentBrick.tx
+            // (r >= 0) condition enable to draw partial brick
+            if r >= 0 {
+                self.drawAtRow(r, col: c, color: currentBrick.color)
+            }
+        }
+    }
+    
+    
+    func drawAtRow(_ r:Int, col c:Int, color:UIColor!) {
+        let context = UIGraphicsGetCurrentContext()
+        let block = CGRect(x: CGFloat((c+1)*GameBoard.gap + c*GameBoard.brickSize),
+                           y: CGFloat((r+1)*GameBoard.gap + r*GameBoard.brickSize),
+                           width: CGFloat(GameBoard.brickSize),
+                           height: CGFloat(GameBoard.brickSize))
+        
+        if color == GameBoard.EmptyColor {
+            GameBoard.strokeColor.set()
+            context?.fill(block)
+        } else {
+            color.set()
+            UIBezierPath(roundedRect: block, cornerRadius: 1).fill()
+        }
+    }
+    
+    func clear() {
+        self.currentBrick = nil
+        
+        self.board = [[UIColor]]()
+        for _ in 0..<GameBoard.rows {
+            self.board.append(self.generateRow())
+        }
+        self.setNeedsDisplay()
+    }
     
     var topY:CGFloat {
         return CGFloat(3 * GameBoard.brickSize)
